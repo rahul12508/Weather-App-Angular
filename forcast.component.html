@@ -1,0 +1,132 @@
+
+
+ <div class="weath">
+  <div class="con1">
+<div class="weather-left">
+
+  <div class="search" >
+
+    <!-- <h1>Weather Forecast</h1> -->
+    <form  (ngSubmit)="getWeather()">  
+      <li><i class="fa-solid fa-magnifying-glass"></i></li>  <input [(ngModel)]="city" placeholder="Enter city name" name="city" >
+  </form>
+    <!-- <button (click)="getWeather()" >Get Weather</button> -->
+   
+  </div>
+
+  <div class="weather-container" *ngIf="weatherData" >
+   
+    <h1>Weather Forecast for {{ weatherData.name }}</h1>
+   <!-- <img src="img2.png" alt=""> -->
+   <img src="{{ iconUrl }}" alt="{{ weatherData.weather[0].main }}">
+    <p class="ps" > {{ weatherData.main.temp }} <span>°C</span></p>
+    <hr>
+
+    <div class="temps"> 
+
+      <p>{{weatherData.weather[0].description}}</p>
+      <p>Humidity: {{ weatherData.main.humidity }}%</p>
+
+
+      </div>
+
+      <div class="imgg">
+        <img src="img3.webp" alt="">
+      </div>
+
+ </div>
+</div>
+
+
+ 
+ 
+<div *ngIf="forecastData" class="forc">
+
+  <div class="header">
+    <div class="head">
+  <p>Today</p>
+  <h5>Week</h5>
+</div>
+
+ <div class="btns">
+  <button class="one" ><span>o</span>C</button>
+  <button><span>o</span>F</button>
+
+  <img src="img2.png" alt="">
+
+
+    </div>
+  </div>
+
+
+    <app-today [forecastData]="forecastData"></app-today>
+
+
+
+  <!-- <div class="for-con">
+    <div class="slider" [style.transform]="'translateX(' + (-currentSlide * 30) + '%)'">
+      <div *ngFor="let forecast of forecastData.list | slice:0:14">
+        <div class="con">
+          <p class="pp">{{ forecast.main.temp }} °C</p>
+          <img src="{{iconUrl2}}" alt="">
+         
+          <p class="ppp">{{ forecast.main.humidity }}%</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="btn">
+      <button class="prev" (click)="prevSlide()"><</button>
+      <button class="next" (click)="nextSlide()">></button>
+    </div>
+  </div> -->
+
+
+
+
+  <div class="second">
+    <h2>Today's HighLights</h2>
+
+    <div class="boxes">
+      <div class="box">
+        <p>Wind Status</p>
+        <h4>{{weatherData.wind.speed}}Km/h</h4>
+        <h5 >{{weatherData.weather[0].description}}</h5>
+      </div>
+
+      <div class="box">
+        <p>Humidity</p>
+        <h4>{{weatherData.main.humidity}}%</h4>
+        <h5>{{weatherData.weather[0].description}}</h5>
+      </div>
+
+      <div class="box">
+        <p>visibility</p>
+        <h4>{{weatherData.main.visibility}}Km</h4>
+        <h5>{{weatherData.weather[0].description}}</h5>
+      </div>
+
+      <div class="box">
+        <p>Pressure</p>
+        <h4>{{weatherData.main.pressure}}</h4>
+        <h5>{{weatherData.weather[0].description}}</h5>
+      </div>
+
+      <div class="box">
+        <p>Feels Like</p>
+        <h4>{{weatherData.main.feels_like}}</h4>
+        <h5>{{weatherData.weather[0].description}}</h5>
+      </div>
+
+      <div class="box">
+        <p>Clouds</p>
+        <h4>{{weatherData.clouds.all}}</h4>
+        <h5>{{weatherData.weather[0].description}}</h5>
+      </div>
+
+    </div>
+
+   </div>
+  
+</div>
+

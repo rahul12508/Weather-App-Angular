@@ -1,0 +1,22 @@
+
+<div class="for-con">
+    <div class="slider-container">
+    <div class="slider">
+      <div *ngFor="let forecast of forecastData.list.slice(0, 14)">
+        <div class="con">
+          <p class="pp">{{ forecast.main.temp }} °C</p>
+          <!-- <img src="https://openweathermap.org/img/wn/{{ forecast.weather[0].icon }}@2x.png" alt=""> -->
+           <img src="{{iconUrl2}}" alt="">
+          <p class="ppp">{{ forecast.main.humidity }}%</p>
+        </div>
+      </div>
+    </div>
+
+</div>
+  </div>
+  
+  <!-- <div class="btn">
+    <button class="prev" (click)="prevSlide()"><</button>
+    <button class="next" (click)="nextSlide()">></button>
+  </div> -->
+  <!-- [style.transform]="'translateX(' + (-currentSlide * 30) + '%)'" -->
